@@ -18,8 +18,10 @@ jobs:
         env:
           THEOS: $HOME/theos
         run: |
-          unzip MamoBall_Ultimate_Theos.zip 
-          make package
+              export THEOS=$HOME/theos 
+              unzip MamoBall_Ultimate_Theos.zip 
+              make package
+      
     
   
         
