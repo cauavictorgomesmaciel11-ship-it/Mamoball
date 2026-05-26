@@ -1,0 +1,23 @@
+name: Build iOS Tweak
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Theos
+        run: |
+          git clone --recursive https://github.com/theos/theos.git $HOME/theos
+
+      - name: Build Package
+        env:
+          THEOS: $HOME/theos
+        run: |
+          unzip MamoBall_Ultimate_Theos.zip
+          cd MamoBall_Ultimate_Theos
+          make package
